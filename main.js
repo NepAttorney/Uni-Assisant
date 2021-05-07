@@ -16,4 +16,19 @@ client.categories = fs.readdirSync('./commands/');
     require(`./handlers/${handler}`)(client, Discord);
 });
 
+client.once('ready', () => {
+    client.user.setActivity('Nep Attorney', { type: 'LISTENING' });    
+});
+
+client.on('message', async message => {
+    // Check if Bot was pinged
+    if(message.author.bot) return false;
+
+    if(message.content.includes("@here") || message.content.includes("@everyone")) return false;
+
+    if(message.mentions.has(client.user.id)) {
+        client.commands.get('botpinged').execute(client, message, Discord);
+    };
+});
+
 client.login(process.env.DISCORD_TOKEN);
