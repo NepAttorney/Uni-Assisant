@@ -4,7 +4,7 @@ module.exports = {
     permissions: [],
     hidden: true,
     execute(client, message, args, Discord){
-        if (message.content.includes("nep!botpinged")) return;
+        if (message.content.includes("uni!botpinged")) return;
         
         var mentionMessages = [
             "Mayhaps.",
