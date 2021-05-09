@@ -1,5 +1,3 @@
-//Command: nep!userinfo
-
 module.exports = {
      name: 'userinfo',
      permissions: [],

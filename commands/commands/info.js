@@ -1,4 +1,3 @@
-//Command: nep!info
 const { version } = require('@root/package.json');
 
 module.exports = {
@@ -17,7 +16,7 @@ module.exports = {
             {name: 'Created By', value: 'HamoodyTheWolf#7257'},
             {name: 'Version', value: version},
             {name: 'Created On', value: '7th May 2021'},
-            {name: 'Updated On', value: '7th May 2021'}
+            {name: 'Updated On', value: '9th May 2021'}
         )
 
         message.channel.send(infoEmbed);

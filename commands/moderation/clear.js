@@ -1,4 +1,3 @@
-//Command: nep!clear
 module.exports = {
     name: 'clear',
     permissions: ["ADMINISTRATOR"],

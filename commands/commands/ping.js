@@ -1,4 +1,3 @@
-//Command: nep!ping
 module.exports = {
     name: 'ping',
     permissions: [],
