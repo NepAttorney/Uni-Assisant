@@ -1,5 +1,3 @@
-require('module-alias/register');
-
 const fs = require('fs');
 
 const Discord = require('discord.js');
