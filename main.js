@@ -4,6 +4,10 @@ const fs = require('fs');
 
 const Discord = require('discord.js');
 
+const keepAlive = require('./server');
+
+const WOKCommands = require('wokcommands');
+
 require('dotenv').config();
 
 const client = new Discord.Client({ partials: [ "MESSAGE", "CHANNEL", "REACTION"] });
@@ -12,23 +16,40 @@ client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 client.categories = fs.readdirSync('./commands/');
 
-['command_handler', 'event_handler'].forEach(handler =>{
-    require(`./handlers/${handler}`)(client, Discord);
-});
+require(`./handlers/event_handler`)(client, Discord);
 
 client.once('ready', () => {
-    client.user.setActivity('Nep Attorney', { type: 'LISTENING' });    
+    client.user.setActivity('Nep Attorney', { type: 'LISTENING' });
+
+    new WOKCommands(client, {
+        commandsDir: "commands",
+        featuresDir: 'features',
+        showWarns: false,
+        disabledDefaultCommands: [
+            "command",
+            "language",
+            "prefix",
+            "requiredrole"
+        ]
+    })
+    .setDefaultPrefix(process.env.PREFIX)
+    .setDisplayName("Uni Assistant")
+    .setColor("b260d6")
+    .setCategorySettings([
+        {
+            name: "Utilities",
+            emoji: "🔨"
+        },
+        {
+            name: "Fun",
+            emoji: "<:UniAssistant:847575340095504404>"
+        },
+        {
+            name: "Moderation",
+            emoji: "<:Moderation:847576504937742388>"
+        }
+    ])
 });
 
-client.on('message', async message => {
-    // Check if Bot was pinged
-    if(message.author.bot) return false;
-
-    if(message.content.includes("@here") || message.content.includes("@everyone")) return false;
-
-    if(message.mentions.has(client.user.id)) {
-        client.commands.get('botpinged').execute(client, message, Discord);
-    };
-});
-
+keepAlive()
 client.login(process.env.DISCORD_TOKEN);

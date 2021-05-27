@@ -1,15 +1,16 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
-     name: 'userinfo',
-     permissions: [],
-     description: "Get some info about yourself!",
-     aliases: [],
-     execute(client, message, args, Discord){
+    name: 'userinfo',
+    description: "Get some info about yourself!",
+    category: "Utilities",
+    callback: ({ message }) => {
          const { guild, channel } = message
 
          const user = message.mentions.users.first() || message.member.user
          const member = guild.members.cache.get(user.id)
 
-         const userinfoEmbed = new Discord.MessageEmbed()
+         const userinfoEmbed = new MessageEmbed()
          .setColor('#66fcf1')
          .setAuthor(`User info for ${user.username}`, user.displayAvatarURL({ dynamic: true, format: "png" }))
          .setThumbnail(message.author.avatarURL)

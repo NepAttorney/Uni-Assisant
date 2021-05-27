@@ -1,9 +1,8 @@
 module.exports = {
     name: 'say',
-    permissions: [],
     description: "Make me say something.",
-    aliases: [],
-    execute(client, message, args, discord){
+    category: "Fun",
+    callback: ({ message, args }) => {
         let messageArgs = args.join(' ');
 
         if(!messageArgs) return;

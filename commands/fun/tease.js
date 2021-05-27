@@ -1,14 +1,14 @@
 module.exports = {
     name: 'tease',
-    permissions: [],
     description: "Tease me! B-But don't overdo it!",
-    aliases: [],
-    execute(client, message, args, Discord){
+    category: "Fun",
+    callback: ({ message }) => {
         var teaseMessages = [
             "H-Hey, don't tease me out of the blue like that!",
-            "Sh-Shut up! I n-not cute!",
+            "Sh-Shut up! I'm n-not cute!",
             "B-B-B-B-B-Baka!",
-            "Who told you I was a-adorable!? Jeez..."
+            "Who told you I was a-adorable!? Jeez...",
+            "*Flustered Uni noises*"
         ]
 
         const teaseMessage = teaseMessages[Math.floor(Math.random() * teaseMessages.length)];

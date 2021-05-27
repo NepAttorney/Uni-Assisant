@@ -1,9 +1,11 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
     name: 'ban',
     permissions: ["BAN_MEMBERS"],
     description: "Ban someone from the server!",
-    aliases: [],
-    execute(client, message, args, discord){
+    category: "Moderation",
+    callback: ({ message, args }) => {
         const member = message.mentions.users.first();
         const reason = args[1] || "None."
         if(member){
@@ -13,7 +15,7 @@ module.exports = {
             });
 
             message.channel.send(
-                new discord.MessageEmbed()
+                new MessageEmbed()
                 .setTitle("User has been banned!")
                 .setColor("#ff0000")
                 .setThumbnail(member.avatarURL({ size: 4096, dynamic: true }))

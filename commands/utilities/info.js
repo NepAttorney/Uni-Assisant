@@ -1,12 +1,13 @@
-const { version } = require('@root/package.json');
+const { version } = require('../../package.json');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'info',
-    permissions: [],
+    category: "Utilities",
     description: "Get some info about me!",
     aliases: [],
-    execute(client, message, args, Discord){
-        const infoEmbed = new Discord.MessageEmbed()
+    callback: ({ client, message }) => {
+        const infoEmbed = new MessageEmbed()
 
         .setColor('#c42fc5')
         .setTitle('Bot Info')
@@ -15,11 +16,8 @@ module.exports = {
             {name: 'Name', value: 'Uni Assistant'},
             {name: 'Created By', value: 'HamoodyTheWolf#7257'},
             {name: 'Version', value: version},
-            {name: 'Created On', value: '7th May 2021'},
-            {name: 'Updated On', value: '9th May 2021'}
         )
 
         message.channel.send(infoEmbed);
     }
-
 }

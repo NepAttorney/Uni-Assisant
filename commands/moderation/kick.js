@@ -2,8 +2,8 @@ module.exports = {
     name: 'kick',
     permissions: ["KICK_MEMBERS"],
     description: "Kick someone from the server!",
-    aliases: [],
-    execute(client, message, args){
+    category: "Moderation",
+    callback: ({ message }) => {
         const member = message.mentions.users.first();
         if(member){
             const memberTarget = message.guild.members.cache.get(member.id);

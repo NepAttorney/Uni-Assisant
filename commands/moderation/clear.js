@@ -2,9 +2,8 @@ module.exports = {
     name: 'clear',
     permissions: ["ADMINISTRATOR"],
     description: "Clear the specified amount of messages in a channel.",
-    aliases: [],
-    async execute(client, message, args){
-
+    category: "Moderation",
+    callback: async ({ message, args }) => {
         if(!args[0]) return message.reply("Please enter the amount of messages you want to clear!");
         if(isNaN(args[0])) return message.reply("Please enter a real number!");
 
