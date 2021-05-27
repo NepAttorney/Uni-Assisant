@@ -5,7 +5,6 @@ module.exports = {
     name: 'info',
     category: "Utilities",
     description: "Get some info about me!",
-    aliases: [],
     callback: ({ client, message }) => {
         const infoEmbed = new MessageEmbed()
 
