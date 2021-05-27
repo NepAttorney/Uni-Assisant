@@ -12,9 +12,7 @@ require('dotenv').config();
 
 const client = new Discord.Client({ partials: [ "MESSAGE", "CHANNEL", "REACTION"] });
 
-client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
-client.categories = fs.readdirSync('./commands/');
 
 require(`./handlers/event_handler`)(client, Discord);
 
