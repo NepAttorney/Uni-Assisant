@@ -17,7 +17,7 @@ client.events = new Discord.Collection();
 client.categories = fs.readdirSync('./commands/');
 
 require(`./handlers/event_handler`)(client, Discord);
-"text"
+
 client.once('ready', () => {
     client.user.setActivity('Nep Attorney', { type: 'LISTENING' });
 
