@@ -20,7 +20,8 @@ module.exports = async(Discord, client, message) =>{
             "Sounds interesting.",
             "I... l-love you too.",
             "Baka.",
-            "I-It's not like I'm a tsun or anything!"
+            "I-It's not like I'm a tsun or anything!",
+            "Bang!"
         ]
 
         const mentionMessage = mentionMessages[Math.floor(Math.random() * mentionMessages.length)]
